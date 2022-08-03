@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace DistributionWarehouse
 {
-    internal class Product
+    internal class PackageService
     {
+        public PackageRepo packageRepo;
 
-        public string Name { get; set; }
-        public string Unit { get; set; }
-        public float Price { get; set; }
         
     }
 }

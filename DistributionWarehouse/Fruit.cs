@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace DistributionWarehouse
 {
-    internal class Fruit:Product
+    internal class Fruit:Other,IProduct
     {
         public string NutritionalQuality { get; set; }
+
+        public string toString()
+        {
+            return base.toString()+ ", Nutritional Quality: " +this.NutritionalQuality;
+        }
 
     }
 }
