@@ -10,7 +10,9 @@ namespace DistributionWarehouse
     {
 
         string toString();
-        float price(int nr); 
+        float price(int nr);
+
+       
 
         
     }

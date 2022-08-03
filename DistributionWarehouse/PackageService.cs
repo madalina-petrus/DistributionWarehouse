@@ -10,6 +10,12 @@ namespace DistributionWarehouse
     {
         public PackageRepo packageRepo;
 
-        
+        public float totalPrice(List<Package> packages)
+        {
+            float s=0;
+            foreach (Package p in packages)
+                s = s + p.pricePerPackage();
+            return s;
+        }
     }
 }

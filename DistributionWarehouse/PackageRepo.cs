@@ -14,24 +14,24 @@ namespace DistributionWarehouse
         
         public void add(Package package)
         {
-            if (package.Product.GetType() is Other)
+            if (package.Product.GetType().Name.Equals("Other"))
                 others.Add(package);
-            else if (package.Product.GetType() is Fruit)
+            else if (package.Product.GetType().Name.Equals("Fruit"))
                 fruits.Add(package);
-            else if (package.Product.GetType() is Vegetable)
+            else if (package.Product.GetType().Name.Equals("Vegetable"))
                 vegetables.Add(package);
         }
 
         public void delete(Package package)
         {
-            if (package.Product.GetType() is Other)
-            //if (package.Category.Equals(Category.Others))
+            if (package.Product.GetType().Name.Equals("Other"))
+                //if (package.Category.Equals(Category.Others))
                 others.Remove(package);
             //else if (package.Category.Equals(Category.Fruits))
-            else if (package.Product.GetType() is Fruit)
+            else if (package.Product.GetType().Name.Equals("Fruit"))
                 fruits.Remove(package);
             //else if (package.Category.Equals(Category.Fruits))
-            else if (package.Product.GetType() is Vegetable)
+            else if (package.Product.GetType().Name.Equals("Vegetable"))
                 vegetables.Remove(package);
         }
 

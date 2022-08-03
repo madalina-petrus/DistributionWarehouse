@@ -15,6 +15,15 @@ public class Hello
             NutritionalQuality = "good"
         };
 
+        IProduct fruit2 = new Fruit()
+        {
+            Name = "orange",
+            Unit = "kg",
+            QuantityPerUnit = 1,
+            Price = 10,
+            NutritionalQuality = "good"
+        };
+
         Console.WriteLine(fruit1.toString());
 
         IProduct vegetable = new Vegetable()
@@ -36,6 +45,14 @@ public class Hello
             Quantity = 10
         };
 
+        Package pack3 = new Package()
+        {
+            Product = fruit2,
+            EntryDate = new DateOnly(2022, 7, 12),
+            ExpirationDate = new DateOnly(2022, 7, 30),
+            Quantity = 20
+        };
+
         Package pack2 = new Package()
         {
             Product = vegetable,
@@ -49,11 +66,18 @@ public class Hello
         PackageRepo repo = new PackageRepo();
         repo.add(pack);
         repo.add(pack2);
-        foreach(var i in repo.fruits)
-        Console.WriteLine(i.toString());
-        repo.delete(pack);
+        repo.add(pack3);
         foreach (var i in repo.fruits)
             Console.WriteLine(i.toString());
+            
+        //repo.delete(pack);
+        foreach (var i in repo.fruits)
+            Console.WriteLine(i.toString());
+
+        PackageService service = new PackageService()
+       { packageRepo = repo};
+
+        Console.WriteLine(service.totalPrice(repo.fruits));
 
     }
 }
